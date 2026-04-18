@@ -1,20 +1,24 @@
-<script setup lang="ts">
-  import Menu from './components/Menu.vue';
-
+<script setup>
+import Navbar from './components/Navbar.vue'
 </script>
 
 <template>
-  <Menu></Menu>
   <div class="container">
-    <router-view></router-view>
+    <Navbar />
+    <router-view />
   </div>
-
 </template>
 
-<style scoped>
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f5f7fa;
+}
 
-  .container{
-    margin: 25px auto;
-  }
-
+.container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px;
+}
 </style>

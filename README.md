@@ -1,132 +1,105 @@
-# 📝 Proyecto TODO - Vue 3 + JSON Server Auth
+# 📚 Proyecto Final - Gestión de Cursos (Vue 3)
 
-## 📌 Descripción
+## 🚀 Descripción
 
-Este proyecto forma parte del módulo de **Vue 3** del Diplomado Fullstack.  
-Tiene como objetivo desarrollar una aplicación web moderna tipo **TODO**, donde los usuarios puedan gestionar tareas de manera eficiente.
-
-La aplicación permite realizar operaciones CRUD, autenticación de usuarios y consumo de API, aplicando buenas prácticas de desarrollo frontend.
+Aplicación web desarrollada con Vue 3 que permite la gestión de cursos y categorías, incluyendo autenticación de usuarios.
 
 ---
 
-## 🎯 Objetivos del Proyecto
+## 🎯 Funcionalidades
 
-- Aplicar conceptos de Vue 3 (Composition API / Options API)
-- Consumir APIs REST usando Axios
-- Implementar autenticación con JSON Server Auth
-- Gestionar rutas públicas y protegidas
-- Utilizar variables de entorno
-- Desarrollar una interfaz moderna y responsiva
-
----
-
-## 🧩 Funcionalidades
-
-### 🔐 Autenticación
-- Registro de usuarios
-- Inicio de sesión
-- Manejo de token (JWT)
-- Protección de rutas
-
-### 📋 Gestión de tareas (TODO)
-- Crear tarea
-- Listar tareas
-- Editar tarea
-- Eliminar tarea
-
-
-### 🔎 Búsqueda y filtros
-- Buscador de tareas por titulo y contenido
-- Filtro por completado
-
-### 🧭 Navegación
-- Rutas públicas y privadas
-- Ruta dinámica 
+* Registro e inicio de sesión
+* CRUD completo de cursos
+* Relación cursos ↔ categorías
+* Filtro y búsqueda de cursos
+* Ruta dinámica (detalle de curso)
+* Protección de rutas
+* Consumo de API con Axios
 
 ---
 
-## 🛠️ Tecnologías utilizadas
+## 🛠️ Tecnologías
 
-- Vue 3
-- Vite
-- Axios
-- Vue Router
-- JSON Server Auth
-- CSS / SCSS
+* Vue 3
+* Vue Router
+* Axios
+* JSON Server Auth
+* Vite
 
 ---
 
-## ⚙️ Configuración del entorno
+## ⚙️ Instalación
 
-Crear un archivo `.env` en la raíz del proyecto:
+### 1. Clonar repositorio
 
-```
-VITE_API_URL=http://localhost:3000
+```bash
+git clone <tu-repo>
+cd proyecto
 ```
 
----
+### 2. Instalar dependencias
 
-## 💻 Instalación del proyecto
-
-```
+```bash
 npm install
 ```
 
----
+### 3. Ejecutar backend
 
-## 🚀 Ejecución en desarrollo
-
+```bash
+npx json-server-auth db.json --port 3000 -r routes.json
 ```
+
+### 4. Ejecutar frontend
+
+```bash
 npm run dev
 ```
 
 ---
 
-## 🏗️ Compilación para producción
+## 🌐 Acceso
 
-```
-npm run build
+Frontend:
+http://localhost:5173
+
+Backend:
+http://localhost:3000
+
+---
+
+## 🔐 Usuarios de prueba
+
+```json
+{
+  "email": "test@test.com",
+  "password": "123456"
+}
 ```
 
 ---
 
-## 🗄️ Backend (JSON Server Auth)
-
-El proyecto incluye un archivo `db.json` que simula la base de datos.
-
-### Instalar json server version 0.17.1
+## 📁 Estructura del proyecto
 
 ```
-npm install -g  json-server@0.17.1
-```
-
-```
-npm install -g json-server-auth@2.1.0
-```
-
-### ▶️ Ejecutar backend
-
-```
-json-server-auth db.json --port 3000 -r routes.json
+src/
+├── services/
+├── views/
+├── components/
+├── router/
+├── App.vue
+└── main.js
 ```
 
 ---
 
+## 📌 Notas
 
-## 📚 Recomendaciones
-
-### IDE
-- VS Code + extensión Vue (Volar)
-- Deshabilitar Vetur
-
-### Navegador
-- Vue Devtools
-- Activar Custom Object Formatter
+* No subir `node_modules`
+* Incluir `db.json`
+* Usar variables de entorno (.env)
 
 ---
 
 ## 👨‍💻 Autor
 
-Proyecto desarrollado como parte del Diplomado Fullstack.
-
-
+Proyecto desarrollado como práctica final de Vue 3.
