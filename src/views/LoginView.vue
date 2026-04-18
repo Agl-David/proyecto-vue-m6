@@ -16,6 +16,8 @@ const router = useRouter();
 
 const handleLogin = async () => {
   await login(email.value, password.value);
-  router.push('/courses');
+
+  // 👇 fuerza actualización del navbar
+  window.location.reload();
 };
 </script>

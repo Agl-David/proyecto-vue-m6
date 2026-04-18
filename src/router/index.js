@@ -27,10 +27,18 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  if (to.meta.requiresAuth && !isAuth()) { // 👈 CAMBIO AQUÍ
-    next('/login');
-  } else {
-    next();
+  const logged = isAuth()
+
+  // 👇 si intenta ir a login estando logeado
+  if ((to.path === '/login' || to.path === '/register') && logged) {
+    next('/courses')
+  }
+  // 👇 si necesita auth y no está logeado
+  else if (to.meta.requiresAuth && !logged) {
+    next('/login')
+  } 
+  else {
+    next()
   }
 });
 

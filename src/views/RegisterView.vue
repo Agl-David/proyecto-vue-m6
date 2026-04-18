@@ -1,8 +1,17 @@
 <template>
   <h2>Register</h2>
+
   <input v-model="name" placeholder="Nombre" />
+
   <input v-model="email" placeholder="Email" />
-  <input v-model="password" type="password" />
+
+  <!-- 👇 AQUÍ EL CAMBIO -->
+  <input 
+    v-model="password" 
+    type="password" 
+    placeholder="Contraseña (mínimo 6 caracteres)" 
+  />
+
   <button @click="handleRegister">Registrar</button>
 </template>
 
@@ -17,7 +26,19 @@ const password = ref('');
 const router = useRouter();
 
 const handleRegister = async () => {
-  await register(name.value, email.value, password.value);
-  router.push('/courses');
+  try {
+    // 👇 Validación básica (muy recomendable)
+    if (password.value.length < 6) {
+      alert('La contraseña debe tener al menos 6 caracteres');
+      return;
+    }
+
+    await register(name.value, email.value, password.value);
+
+    router.push('/courses');
+  } catch (error) {
+    alert('Error al registrarse');
+    console.error(error);
+  }
 };
 </script>

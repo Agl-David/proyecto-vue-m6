@@ -5,6 +5,12 @@
       "password": "$2a$10$VymgqEfxF8H3G3qExplbU.RyGR5nfISm9JhTrNSJRNUwMLjW3H8mG",
       "id": 1,
       "name": "dev"
+    },
+    {
+      "email": "carlo123@gmail.com",
+      "password": "$2a$10$QtEmkchVErmkbMNGrxtoreREeJN392/tOWM9XEuN6LbWCxrMHtArO",
+      "id": 2,
+      "name": "Carlos"
     }
   ],
   "categories": [
@@ -17,5 +23,13 @@
       "name": "Diseño"
     }
   ],
-  "courses": []
+  "courses": [
+    {
+      "title": "SQL",
+      "description": "Ninguna",
+      "categoryId": 111,
+      "userId": 1,
+      "id": 1
+    }
+  ]
 }

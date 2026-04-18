@@ -3,7 +3,6 @@ import api from './api';
 // REGISTRO
 export const register = async (name, email, password) => {
   try {
-    // 1. Crear usuario
     const res = await api.post('/register', {
       email,
       password
@@ -11,13 +10,13 @@ export const register = async (name, email, password) => {
 
     const { accessToken, user } = res.data;
 
-    // 2. Guardar token
     localStorage.setItem('token', accessToken);
 
-    // 3. Guardar nombre (IMPORTANTE)
-    await api.patch(`/users/${user.id}`, {
-      name
-    });
+    // 👇 guardar user
+    localStorage.setItem('user', JSON.stringify(user));
+
+    // guardar nombre
+    await api.patch(`/users/${user.id}`, { name });
 
     return user;
 
@@ -38,12 +37,16 @@ export const login = async (email, password) => {
 
   localStorage.setItem('token', accessToken);
 
+  // 👇 solo una vez
+  localStorage.setItem('user', JSON.stringify(user));
+
   return user;
 };
 
 // LOGOUT
 export const logout = () => {
   localStorage.removeItem('token');
+  localStorage.removeItem('user');
 };
 
 // AUTH
