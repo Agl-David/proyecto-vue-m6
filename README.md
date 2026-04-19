@@ -129,4 +129,4 @@ src/
 
 ## 👨‍💻 Autor
 
-Proyecto desarrollado como práctica final de Vue 3. - Alumno David Adria Aguilar Loza
+Proyecto desarrollado como práctica final de Vue 3. - Alumno David Adrian Aguilar Loza
