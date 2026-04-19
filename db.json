@@ -33,6 +33,38 @@
     {
       "id": 2,
       "name": "Diseño"
+    },
+    {
+      "id": 3,
+      "name": "Base de Datos"
+    },
+    {
+      "id": 4,
+      "name": "DevOps"
+    },
+    {
+      "id": 5,
+      "name": "Frontend"
+    },
+    {
+      "id": 6,
+      "name": "Backend"
+    },
+    {
+      "id": 7,
+      "name": "Mobile"
+    },
+    {
+      "id": 8,
+      "name": "Inteligencia Artificial"
+    },
+    {
+      "id": 9,
+      "name": "Ciberseguridad"
+    },
+    {
+      "id": 10,
+      "name": "Testing / QA"
     }
   ],
   "courses": []

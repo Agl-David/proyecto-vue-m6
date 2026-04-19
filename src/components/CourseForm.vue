@@ -1,6 +1,7 @@
 <script setup>
-import { ref, watch } from 'vue'
+import { ref, watch, onMounted } from 'vue'
 import { createCourse, updateCourse } from '../services/courseService'
+import { getCategories } from '../services/categoryService'
 
 const props = defineProps({
   course: Object
@@ -12,11 +13,20 @@ const title = ref('')
 const description = ref('')
 const categoryId = ref('')
 
+const categories = ref([])
+
+// cargar categorías
+onMounted(async () => {
+  const res = await getCategories()
+  categories.value = res
+})
+
+// 🔥 FIX: convertir a string para que el select funcione
 watch(() => props.course, (newVal) => {
   if (newVal) {
     title.value = newVal.title
     description.value = newVal.description
-    categoryId.value = newVal.categoryId
+    categoryId.value = String(newVal.categoryId)
   } else {
     title.value = ''
     description.value = ''
@@ -24,11 +34,12 @@ watch(() => props.course, (newVal) => {
   }
 })
 
+// guardar (crear o actualizar)
 const save = async () => {
   const payload = {
     title: title.value,
     description: description.value,
-    categoryId: categoryId.value ? Number(categoryId.value) : null
+    categoryId: categoryId.value ? Number(categoryId.value) : null // 🔥 FIX
   }
 
   if (props.course) {
@@ -39,6 +50,7 @@ const save = async () => {
 
   emit('saved')
 
+  // limpiar formulario
   title.value = ''
   description.value = ''
   categoryId.value = ''
@@ -51,9 +63,19 @@ const save = async () => {
 
     <input v-model="title" placeholder="Título" />
     <input v-model="description" placeholder="Descripción" />
-    <input v-model="categoryId" placeholder="ID Categoría" />
 
-    <!-- 🔥 FIX AQUÍ -->
+    <!-- 🔥 SELECT CORRECTO -->
+    <select v-model="categoryId">
+      <option disabled value="">Selecciona categoría</option>
+      <option 
+        v-for="cat in categories" 
+        :key="cat.id" 
+        :value="cat.id"
+      >
+        {{ cat.name }}
+      </option>
+    </select>
+
     <button type="button" @click="save">
       {{ course ? 'Actualizar' : 'Crear' }}
     </button>
