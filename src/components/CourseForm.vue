@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted, watch } from 'vue'
+import { ref, watch } from 'vue'
 import { createCourse, updateCourse } from '../services/courseService'
 
 const props = defineProps({
@@ -12,38 +12,36 @@ const title = ref('')
 const description = ref('')
 const categoryId = ref('')
 
-onMounted(() => {
-  if (props.course) {
-    title.value = props.course.title
-    description.value = props.course.description
-    categoryId.value = props.course.categoryId
-  }
-})
-
 watch(() => props.course, (newVal) => {
   if (newVal) {
     title.value = newVal.title
     description.value = newVal.description
     categoryId.value = newVal.categoryId
+  } else {
+    title.value = ''
+    description.value = ''
+    categoryId.value = ''
   }
 })
 
 const save = async () => {
+  const payload = {
+    title: title.value,
+    description: description.value,
+    categoryId: categoryId.value ? Number(categoryId.value) : null
+  }
+
   if (props.course) {
-    await updateCourse(props.course.id, {
-      title: title.value,
-      description: description.value,
-      categoryId: Number(categoryId.value)
-    })
+    await updateCourse(props.course.id, payload)
   } else {
-    await createCourse({
-      title: title.value,
-      description: description.value,
-      categoryId: Number(categoryId.value)
-    })
+    await createCourse(payload)
   }
 
   emit('saved')
+
+  title.value = ''
+  description.value = ''
+  categoryId.value = ''
 }
 </script>
 
@@ -55,7 +53,8 @@ const save = async () => {
     <input v-model="description" placeholder="Descripción" />
     <input v-model="categoryId" placeholder="ID Categoría" />
 
-    <button @click="save">
+    <!-- 🔥 FIX AQUÍ -->
+    <button type="button" @click="save">
       {{ course ? 'Actualizar' : 'Crear' }}
     </button>
   </div>

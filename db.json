@@ -11,6 +11,18 @@
       "password": "$2a$10$QtEmkchVErmkbMNGrxtoreREeJN392/tOWM9XEuN6LbWCxrMHtArO",
       "id": 2,
       "name": "Carlos"
+    },
+    {
+      "email": "patty@gmail.com",
+      "password": "$2a$10$z4q25O4/KIaE8Y3j.81R7uA3kzSfCI3f.6aW1R1ZkK15W0BXiHjQ6",
+      "id": 3,
+      "name": "Patty"
+    },
+    {
+      "email": "mithril.gas@gmail.com",
+      "password": "$2a$10$rx2QUmQ6hRvMX.S6L9Jq/.lkOGM8tCIcnFjg6koZoNVPydhu9v5VW",
+      "id": 4,
+      "name": "mithril"
     }
   ],
   "categories": [
@@ -23,13 +35,5 @@
       "name": "Diseño"
     }
   ],
-  "courses": [
-    {
-      "title": "SQL",
-      "description": "Ninguna",
-      "categoryId": 111,
-      "userId": 1,
-      "id": 1
-    }
-  ]
+  "courses": []
 }

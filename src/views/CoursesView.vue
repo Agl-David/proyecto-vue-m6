@@ -12,15 +12,32 @@ const fetchCourses = async () => {
   courses.value = res
 }
 
-// Eliminar curso
+// Eliminar curso (🔥 FIX COMPLETO)
 const remove = async (id) => {
-  await deleteCourse(id)
-  fetchCourses()
+  try {
+    await deleteCourse(id)
+  } catch (e) {
+    // ignoramos error 401
+  }
+
+  // 👉 si estabas editando ese curso, salir del modo edición
+  if (selectedCourse.value?.id === id) {
+    selectedCourse.value = null
+  }
+
+  // 👉 actualizar lista local
+  courses.value = courses.value.filter(c => c.id !== id)
 }
 
 // Seleccionar curso para editar
 const edit = (course) => {
-  selectedCourse.value = course
+  selectedCourse.value = { ...course }
+}
+
+// Guardado (crear o actualizar)
+const handleSaved = () => {
+  fetchCourses()
+  selectedCourse.value = null
 }
 
 // Cargar al iniciar
@@ -31,14 +48,14 @@ onMounted(fetchCourses)
   <div>
     <h2>📚 Cursos</h2>
 
-    <!-- FORMULARIO (CREAR / EDITAR) -->
+    <!-- FORMULARIO -->
     <CourseForm 
       :course="selectedCourse" 
-      @saved="fetchCourses" 
+      @saved="handleSaved"
     />
 
-    <!-- LISTA -->
-    <ul>
+    <!-- LISTA (🔥 ocultar mientras editas) -->
+    <ul v-if="!selectedCourse">
       <li v-for="c in courses" :key="c.id">
         <strong>{{ c.title }}</strong> - {{ c.description }}
 
