@@ -67,5 +67,13 @@
       "name": "Testing / QA"
     }
   ],
-  "courses": []
+  "courses": [
+    {
+      "title": "quimica4",
+      "description": "ninguna",
+      "categoryId": 2,
+      "userId": 1,
+      "id": 1
+    }
+  ]
 }
