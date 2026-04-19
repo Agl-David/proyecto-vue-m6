@@ -23,6 +23,18 @@
       "password": "$2a$10$rx2QUmQ6hRvMX.S6L9Jq/.lkOGM8tCIcnFjg6koZoNVPydhu9v5VW",
       "id": 4,
       "name": "mithril"
+    },
+    {
+      "email": "admin@gmail.com",
+      "password": "$2a$10$4Wv5RRPo8ouv.2GCioGvreW13usCot5m40RkYwWgNXCzluqDwlzIa",
+      "id": 5,
+      "name": "admin"
+    },
+    {
+      "email": "test@test.com",
+      "password": "$2a$10$9BGu4JZkxQ16DUt7BZh.tOCcJDOOLGfQESkFwSFiLtM.ehWmgKrqW",
+      "id": 6,
+      "name": "test"
     }
   ],
   "categories": [
@@ -74,6 +86,27 @@
       "categoryId": 2,
       "userId": 1,
       "id": 1
+    },
+    {
+      "title": "SQL",
+      "description": "ninguna",
+      "categoryId": 6,
+      "userId": 6,
+      "id": 2
+    },
+    {
+      "title": "Kotlin",
+      "description": "celular",
+      "categoryId": 7,
+      "userId": 6,
+      "id": 3
+    },
+    {
+      "title": "Node",
+      "description": "ninguna",
+      "categoryId": 6,
+      "userId": 6,
+      "id": 4
     }
   ]
 }
