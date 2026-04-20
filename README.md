@@ -68,6 +68,12 @@ VITE_TIMEOUT=3000
 npx json-server-auth db.json --routes routes.json --port 3000
 ```
 
+> También puedes usar:
+
+```bash
+json-server-auth db.json --routes routes.json --port 3000
+```
+
 ---
 
 ### 5. Ejecutar frontend
@@ -98,7 +104,7 @@ El sistema utiliza autenticación basada en token.
 }
 ```
 
-> También puedes registrar nuevos usuarios desde la app.
+> ⚠️ Nota: Si el usuario no existe, debes registrarlo desde la aplicación o agregarlo manualmente en `db.json`.
 
 ---
 
@@ -129,4 +135,5 @@ src/
 
 ## 👨‍💻 Autor
 
-Proyecto desarrollado como práctica final de Vue 3. - Alumno David Adrian Aguilar Loza
+Proyecto desarrollado como práctica final de Vue 3.
+**Alumno:** David Adrian Aguilar Loza
